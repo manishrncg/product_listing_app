@@ -1,0 +1,73 @@
+.temp_grey, .day_Name_grey{
+  color: #bababa !important;
+  margin: 10px 0 0px;
+}
+
+#tabs>div{
+  padding: 2px;
+}
+#tabs>div>div>div>div>div:hover{
+  background-color: #fcfcfc;
+  border: 1px solid #e9e9e9;
+  border-radius: 1px;
+  margin: 0;
+}
+.tab_padding-0{
+  padding: 0 !important;
+}
+
+ul {
+    list-style-type: none;
+      border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  padding-left: 0;
+    overflow-y: scroll;
+  max-height: 200px;
+}
+
+/*input, ul li{
+  padding: 7px;
+  border-color: #ccc;
+  width: 96%;
+}
+*/
+.dropdown>.placholder, .list{
+  padding: 7px;
+  border: 1px solid #c9c9c9;
+  height: 20px;
+  width: 96%;
+  cursor: pointer;
+  margin: 0;
+  font-size: 16px;
+  color: #000;
+  text-transform: capitalize;
+}
+
+ul li:hover{
+  background-color: #eee;
+  cursor: pointer;
+  color: #fff;
+  background: #EA7F28;
+}
+
+.list{
+  margin-top: 0;
+  padding: 0;
+  min-height: 105px;
+  overflow-y: scroll;
+  width: 99.7%;
+  background: #fff;
+  z-index: 1;
+}
+
+.list>li{
+  padding: 7px;
+}
+
+.float-right{
+  float: right;
+}
+
+p.placholder {
+    border-radius: 3px;
+}

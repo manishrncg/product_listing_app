@@ -61,3 +61,51 @@ p.desc{
 .float-right{
 	float: right;
 }
+
+.btn{
+	width: 128px;
+	height: 32px;
+	color: #fff;
+	background: #EA7F28;
+	border-radius: 2px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn:focus{
+	border: none;
+	background: #D37324;
+}
+
+.width-pagination{
+	width: 44%;
+}
+
+.margin-auto{
+	margin: auto;
+}
+
+.margin-15{
+  margin: 15px;
+}
+
+.margin-30{
+  margin: 30px;
+}
+
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.orange-text{
+	color: #EA7F28;
+	text-decoration: none;
+}
+
+.orange-text:hover{
+	text-decoration: underline;
+}
+
+.paginate-margin{
+    margin: 0 25px;
+}
