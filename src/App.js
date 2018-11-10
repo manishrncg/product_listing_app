@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {apiEndPoint} from './config/config.js';
+
+// components
+import ListItem from './components/ListItem.js';
+
 import './App.css';
 
-import { Link } from 'react-router-dom';
 
 class App extends Component {
 	constructor(props){
@@ -27,14 +31,7 @@ class App extends Component {
   render() {
   	const cars = this.state.cars.map( (car,index) => {
   		const carName = car.manufacturerName + ' ' + car.modelName;
-  		return (<div key={index} className="product-box display-flex">
-					<img src={car.pictureUrl} className="car-dp" alt={carName} />
-					<span className="product-desc">
-						<b className="margin-0">{carName}</b>
-						<p className="desc">Stock # {car.stockNumber} - {car.mileage.number + car.mileage.unit} - {car.fuelType} - {car.color}</p>
-							<Link to={'/view/'+car.stockNumber} className="cursor-pointer orange-text">View details</Link>
-					</span>
-				</div>);
+  		return (<ListItem key={index} carName={carName} car={car} />);
   	});
     return (
 		<div className="display-flex">
