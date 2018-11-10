@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import {apiEndPoint} from './config/config.js';
 
 // components
@@ -38,13 +37,6 @@ class App extends Component {
 
 	componentDidMount(){
 		const self = this;
-		// axios.get(apiEndPoint+'/cars')
-		// .then(function (response) {
-		// 	console.log(response);
-		// 	self.setState({
-		// 		cars: response.data.cars
-		// 	});
-		// })
 		axios.all([this.getCarsList(), this.getColorsList(), this.getManufacturersList()])
 		.then(axios.spread(function (cars, colors, manu) {
 			self.colors = colors.data.colors;
@@ -57,10 +49,6 @@ class App extends Component {
 		.catch(function (error) {
 			console.log(error);
 		});
-	}
-
-	simpleAction = (event) => {
-		this.props.simpleAction();
 	}
 
 	renderCars = (e, filter, pageNumber = 1) => {

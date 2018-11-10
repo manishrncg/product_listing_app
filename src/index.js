@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 // components
 import Header from './components/Header';
+import ProductPage from './components/ProductPage';
 
 // import react router deps
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -16,6 +17,10 @@ ReactDOM.render(
 		<BrowserRouter>
 			<Switch>
 				<Route exact path="/" component={App} />
+				<Route path="/view/:id" component={ProductPage} />
+				
+				{/* <Route path='/404' component={NotFound} /> */}
+          		{/* <Redirect from='*' to='/404' /> */}
 			</Switch>
 		</BrowserRouter>
 	</React.Fragment>
