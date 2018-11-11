@@ -81,7 +81,7 @@ class ProductPage extends Component {
 							</div>
 						</div>
 					</div>
-					<Footer/>
+					<Footer classes="app-abs-footer" />
 				</React.Fragment>);
 	}
 }

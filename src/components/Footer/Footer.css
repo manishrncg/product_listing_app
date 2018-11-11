@@ -1,4 +1,17 @@
 .app-footer{
-    margin: 30px auto;
-    border-top: 1px solid #EDEDED;
+	border-top: 1px solid #EDEDED;
+	position: relative;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    padding: 14.5px;
+}
+
+.app-abs-footer{
+	border-top: 1px solid #EDEDED;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    padding: 14.5px;
 }

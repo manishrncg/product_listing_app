@@ -5,7 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // components
-import Header from './components/Header';
 import Productpage from './components/Productpage';
 import NotFound from './components/NotFound';
 
