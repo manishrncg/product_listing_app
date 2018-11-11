@@ -1,0 +1,16 @@
+.car-dp-full{
+	margin: 12px auto;
+}
+
+.flex-column{
+	flex-flow: column;
+}
+
+.product-page-desc{
+	width: 800px;
+	margin: auto;
+}
+
+.font-14{
+	font-size: 14px;
+}

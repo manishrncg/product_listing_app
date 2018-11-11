@@ -1,32 +1,114 @@
-.App {
-  text-align: center;
+p.desc{
+    font-size: 12px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.product-list{
+	width: 70%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.display-flex{
+	display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.flex1{
+	flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.position-relative{
+    position: relative;
+}
+
+.position-absolute{
+    position: absolute;
+}
+
+.product-box{
+	padding: 12px;
+    margin-bottom: 10px;
+	border: 1px solid #EDEDED;
+    margin-right: 15px;
+}
+
+.margin-0{
+    margin: 0;
+}
+
+.margin-tb-15{
+	margin: 15px 0 15px 0;
+}
+
+.product-desc{
+	margin-left: 10px;
+}
+
+.car-dp{
+    width: 84px;
+    height: 84px;
+}
+
+.grey-border-box{
+	border: 1px solid #EDEDED;
+    margin: 15px;
+	max-height: 260px;
+}
+
+.font-w-normal{
+	font-weight: normal;
+}
+
+.float-right{
+	float: right;
+}
+
+.btn{
+	width: 128px;
+	height: 32px;
+	color: #fff;
+	background: #EA7F28;
+	border-radius: 2px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn:focus{
+	border: none;
+	background: #D37324;
+}
+
+.pagination-container{
+	width: 44%;
+	margin: 20px auto;
+}
+
+.margin-auto{
+	margin: auto;
+}
+
+.margin-15{
+  margin: 15px;
+}
+
+.margin-24{
+  margin: 24px;
+}
+
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.orange-text{
+	color: #EA7F28;
+	text-decoration: none;
+}
+
+.orange-text:hover{
+	text-decoration: underline;
+}
+
+.paginate-margin{
+    margin: 0 25px;
+}
+
+.hide{
+	display: none;
 }

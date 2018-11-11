@@ -4,14 +4,22 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// components
+import Productpage from './components/Productpage';
+import NotFound from './components/NotFound';
+
 // import react router deps
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 ReactDOM.render(
 	<React.Fragment>
 		<BrowserRouter>
 			<Switch>
 				<Route exact path="/" component={App} />
+				<Route path="/view/:id" component={Productpage} />
+				
+				<Route path='/404' component={NotFound} />
+          		<Redirect from='*' to='/404' />
 			</Switch>
 		</BrowserRouter>
 	</React.Fragment>
