@@ -12,6 +12,7 @@ import './App.css';
 class App extends Component {
 	constructor(props){
 		super(props);
+		this.dropDownOpen = false;
 		this.colors = [];
 		this.manufacturers = [];
 		this.params = {};
@@ -19,6 +20,7 @@ class App extends Component {
 		this.totalPagesCount = 1;
 		this.state = ({
 			currentPage: 1,
+			dropDownOpen: false,
 			cars: []
 		});
 	}
@@ -35,7 +37,19 @@ class App extends Component {
 		return axios.get(apiEndPoint + '/colors');
 	}
 
+	closeDropDown = (e) => {
+		if(e.target.getAttribute && e.target.getAttribute('class') === 'placholder'){
+			return false;
+		}
+		this.setState({
+			dropDownOpen: false
+		});
+	}
+
 	componentDidMount(){
+		document.addEventListener('click', (e) => this.closeDropDown(e));
+		document.addEventListener('scroll', this.closeDropDown);
+
 		const self = this;
 		axios.all([this.getCarsList(), this.getColorsList(), this.getManufacturersList()])
 		.then(axios.spread(function (cars, colors, manu) {
@@ -50,6 +64,11 @@ class App extends Component {
 			console.log(error);
 		});
 	}
+
+	componentWillUnmount() {
+	    document.removeEventListener('click', (e) => this.closeDropDown(e));
+		document.removeEventListener('scroll', this.closeDropDown);
+  	}
 
 	renderCars = (e, filter, pageNumber = 1) => {
 		const self = this;
@@ -79,16 +98,18 @@ class App extends Component {
 		<div className="display-flex">
 			<div className="grey-border-box padding-15 flex1">
 				<Dropdown
-					onClick={this.renderCars}
 					name="Color" 
 					placeHolder="All car colors"
 					type="color"
+					dropDownOpen={this.state.dropDownOpen}
+					onClick={this.renderCars}
 					optionsList={this.colors}/>
 				<Dropdown
-					onClick={this.renderCars}
 					name="Manufacturers" 
 					placeHolder="All manufacturers"
 					type="manufacturer"
+					dropDownOpen={this.state.dropDownOpen}
+					onClick={this.renderCars}
 					optionsList={this.manufacturers}/>
 				<Button  
 					name="Filter"
@@ -103,10 +124,11 @@ class App extends Component {
 					</div>
 					<div className="flex1">
 						<Dropdown 
-							onClick={this.renderCars}
 							name="Sort by" 
 							placeHolder="None"
 							type="sort"
+							dropDownOpen={this.state.dropDownOpen}
+							onClick={this.renderCars}
 							optionsList={this.sort}/>
 					</div>
 				</div>

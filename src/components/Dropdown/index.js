@@ -10,8 +10,6 @@ class Dropdown extends Component {
 			liSelected: true,
 			dropdownVisible: false
 		};
-		// this.valueSelection = this.valueSelection.bind(this);
-		// this.showDropDown = this.showDropDown.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps){
@@ -25,6 +23,9 @@ class Dropdown extends Component {
 			this.optionsList = nextProps.optionsList.map((ele, index) => <li key={index} data-type={nextProps.type} data-value={ele}>{ele}</li>);			
 			this.optionsList = [...[<li key="default" data-type={nextProps.type} data-value=''>{nextProps.placeHolder}</li>], ...this.optionsList]
 		}
+		this.setState({
+			dropdownVisible: nextProps.dropDownOpen
+		});
 	}
 
 	valueSelection = (e) => {
