@@ -9,17 +9,22 @@ import './Productpage.css';
 class ProductPage extends Component {
 	constructor(){
 		super();
+		this.carsSaved = JSON.parse(localStorage.getItem('cars')) || {};
 		this.state = ({
-			car: {}
+			car: {},
+			carsSavedStatus: false
 		});
 	}
 
 	componentDidMount(){
 		const self = this;
-		this.getCarsList(this.props.match.params.id)
+		const stockNumber = this.props.match.params.id;
+		this.getCarsList(stockNumber)
 		.then(function (res) {
+			const carsSavedStatus = self.carsSaved[stockNumber] !== undefined ? true : false;
 			self.setState({
-				car: res.data.car
+				car: res.data.car,
+				carsSavedStatus: carsSavedStatus
 			});
 		})
 		.catch(function (error) {
@@ -32,11 +37,23 @@ class ProductPage extends Component {
 	}
 
 	saveCarToLocal = (stockNumber) => {
+		const carsSavedStatus = this.state.carsSavedStatus;
 		const currentCar = {};
-		currentCar[stockNumber] = this.state.car;
-		const cars = JSON.parse(localStorage.getItem('cars')) || {};
-		const newSavedCarsList = {...currentCar, ...cars};
-		localStorage.setItem("cars", JSON.stringify(newSavedCarsList));
+		if(!carsSavedStatus){
+			currentCar[stockNumber] = this.state.car;
+			this.carsSaved = {...currentCar, ...this.carsSaved};
+			localStorage.setItem("cars", JSON.stringify(this.carsSaved));
+			this.setState({
+				carsSavedStatus: true
+			})
+		}
+		else{
+			delete this.carsSaved[stockNumber];
+			localStorage.setItem("cars", JSON.stringify(this.carsSaved));
+			this.setState({
+				carsSavedStatus: false
+			})
+		}
 	}	
 
 	render(){
@@ -54,7 +71,7 @@ class ProductPage extends Component {
 						<div className="grey-border-box flex1">
 							<p className="margin-24">If you like this car, click the button and save it in your collection of favourite items</p>
 							<Button  
-								name="Save"
+								name={this.state.carsSavedStatus ? "Remove" : "Save"}
 								classes="btn margin-15 float-right"
 								onClick={() => this.saveCarToLocal(stockNumber)} />
 						</div>
