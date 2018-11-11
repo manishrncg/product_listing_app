@@ -98,8 +98,8 @@ class App extends Component {
 			<div className='product-list'>
 				<div className="display-flex">
 					<div className="flex1">
-						<h2 className="margin-tb-15">Available cars</h2>
-						<h2 className="font-w-normal margin-tb-15">Showing 10 of 100 results</h2>
+						<h3 className="margin-tb-15">Available cars</h3>
+						<h3 className="font-w-normal margin-tb-15">Showing 10 of 100 results</h3>
 					</div>
 					<div className="flex1">
 						<Dropdown 
@@ -111,7 +111,7 @@ class App extends Component {
 					</div>
 				</div>
 				{cars}
-				<div className="width-pagination margin-auto">
+				<div className="pagination-container">
 					<span 
 						className="cursor-pointer orange-text paginate-margin" 
 						onClick={(e) => this.renderCars(e, true, 1)}>First </span>

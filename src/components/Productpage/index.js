@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {apiEndPoint} from '../config/config.js';
-import Button from './Button.js';
-import './ProductPage.css';
+import {apiEndPoint} from '../../config/config.js';
+// components
+import Button from '../Button.js';
+
+import './Productpage.css';
 
 class ProductPage extends Component {
 	constructor(){
@@ -46,11 +48,11 @@ class ProductPage extends Component {
 					<div className="product-page-desc display-flex">
 						<div className="flex1">
 							<h1>{`${manufacturerName} ${modelName}`}</h1>
-							<h3>{`Stock # ${stockNumber} - ${mileageNumber + mileageUnit} - ${fuelType} - ${color}`}</h3>
-							<p>This car is currently available and can be delivered as soon as tomorrow morning. Please be aware that delivery times shown in this page are not definitive and may change due to bad weather conditions.</p>
+							<h3 className="font-w-normal">{`Stock # ${stockNumber} - ${mileageNumber + mileageUnit} - ${fuelType} - ${color}`}</h3>
+							<p className="font-14">This car is currently available and can be delivered as soon as tomorrow morning. Please be aware that delivery times shown in this page are not definitive and may change due to bad weather conditions.</p>
 						</div>
 						<div className="grey-border-box flex1">
-							<p className="margin-30">If you like this car, click the button and save it in your collection of favourite items</p>
+							<p className="margin-24">If you like this car, click the button and save it in your collection of favourite items</p>
 							<Button  
 								name="Save"
 								classes="btn margin-15 float-right"

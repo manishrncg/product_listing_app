@@ -1,6 +1,4 @@
 p.desc{
-    font-family: arial,sans-serif;
-    color: #878787 !important;
     font-size: 12px;
 }
 
@@ -77,8 +75,9 @@ p.desc{
 	background: #D37324;
 }
 
-.width-pagination{
+.pagination-container{
 	width: 44%;
+	margin: 20px auto;
 }
 
 .margin-auto{
@@ -89,8 +88,8 @@ p.desc{
   margin: 15px;
 }
 
-.margin-30{
-  margin: 30px;
+.margin-24{
+  margin: 24px;
 }
 
 .cursor-pointer{
@@ -108,4 +107,8 @@ p.desc{
 
 .paginate-margin{
     margin: 0 25px;
+}
+
+.hide{
+	display: none;
 }

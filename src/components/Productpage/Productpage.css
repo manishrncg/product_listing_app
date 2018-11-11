@@ -1,5 +1,5 @@
 .car-dp-full{
-	margin: 15px auto;
+	margin: 12px auto;
 }
 
 .flex-column{
@@ -9,4 +9,8 @@
 .product-page-desc{
 	width: 800px;
 	margin: auto;
+}
+
+.font-14{
+	font-size: 14px;
 }
