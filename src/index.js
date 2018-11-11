@@ -14,7 +14,6 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 ReactDOM.render(
 	<React.Fragment>
-		<Header />
 		<BrowserRouter>
 			<Switch>
 				<Route exact path="/" component={App} />

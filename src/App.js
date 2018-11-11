@@ -3,6 +3,8 @@ import axios from 'axios';
 import {apiEndPoint} from './config/config.js';
 
 // components
+import Header from './components/Header';
+import Footer from './components/Footer';
 import ListItem from './components/ListItem';
 import Dropdown from './components/Dropdown';
 import Button from './components/Button.js';
@@ -94,63 +96,65 @@ class App extends Component {
   		const carName = car.manufacturerName + ' ' + car.modelName;
   		return (<ListItem key={index} carName={carName} car={car} />);
   	});
-    return (
-		<div className="display-flex">
-			<div className="grey-border-box padding-15 flex1">
-				<Dropdown
-					name="Color" 
-					placeHolder="All car colors"
-					type="color"
-					dropDownOpen={this.state.dropDownOpen}
-					onClick={this.renderCars}
-					optionsList={this.colors}/>
-				<Dropdown
-					name="Manufacturers" 
-					placeHolder="All manufacturers"
-					type="manufacturer"
-					dropDownOpen={this.state.dropDownOpen}
-					onClick={this.renderCars}
-					optionsList={this.manufacturers}/>
-				<Button  
-					name="Filter"
-					classes="btn margin-15 float-right"
-					onClick={this.renderCars} />
-			</div>
-			<div className='product-list'>
+    return (<React.Fragment>
+				<Header/>
 				<div className="display-flex">
-					<div className="flex1">
-						<h3 className="margin-tb-15">Available cars</h3>
-						<h3 className="font-w-normal margin-tb-15">Showing 10 of 100 results</h3>
-					</div>
-					<div className="flex1">
-						<Dropdown 
-							name="Sort by" 
-							placeHolder="None"
-							type="sort"
+					<div className="grey-border-box padding-15 flex1">
+						<Dropdown
+							name="Color" 
+							placeHolder="All car colors"
+							type="color"
 							dropDownOpen={this.state.dropDownOpen}
 							onClick={this.renderCars}
-							optionsList={this.sort}/>
+							optionsList={this.colors}/>
+						<Dropdown
+							name="Manufacturers" 
+							placeHolder="All manufacturers"
+							type="manufacturer"
+							dropDownOpen={this.state.dropDownOpen}
+							onClick={this.renderCars}
+							optionsList={this.manufacturers}/>
+						<Button  
+							name="Filter"
+							classes="btn margin-15 float-right"
+							onClick={this.renderCars} />
+					</div>
+					<div className='product-list'>
+						<div className="display-flex">
+							<div className="flex1">
+								<h3 className="margin-tb-15">Available cars</h3>
+								<h3 className="font-w-normal margin-tb-15">Showing 10 of 100 results</h3>
+							</div>
+							<div className="flex1">
+								<Dropdown 
+									name="Sort by" 
+									placeHolder="None"
+									type="sort"
+									dropDownOpen={this.state.dropDownOpen}
+									onClick={this.renderCars}
+									optionsList={this.sort}/>
+							</div>
+						</div>
+						{cars}
+						<div className="pagination-container">
+							<span 
+								className="cursor-pointer orange-text paginate-margin" 
+								onClick={(e) => this.renderCars(e, true, 1)}>First </span>
+							<span 
+								className="cursor-pointer orange-text paginate-margin" 
+								onClick={(e) => this.renderCars(e, true, this.state.currentPage-1)}>Previous </span>
+							<span>Page {this.state.currentPage} of {this.totalPagesCount} </span>
+							<span 
+								className="cursor-pointer orange-text paginate-margin" 
+								onClick={(e) => this.renderCars(e, true, this.state.currentPage+1)}>Next </span>
+							<span 
+								className="cursor-pointer orange-text paginate-margin" 
+								onClick={(e) => this.renderCars(e, true, this.totalPagesCount)}>Last</span>
+						</div>
 					</div>
 				</div>
-				{cars}
-				<div className="pagination-container">
-					<span 
-						className="cursor-pointer orange-text paginate-margin" 
-						onClick={(e) => this.renderCars(e, true, 1)}>First </span>
-					<span 
-						className="cursor-pointer orange-text paginate-margin" 
-						onClick={(e) => this.renderCars(e, true, this.state.currentPage-1)}>Previous </span>
-					<span>Page {this.state.currentPage} of {this.totalPagesCount} </span>
-					<span 
-						className="cursor-pointer orange-text paginate-margin" 
-						onClick={(e) => this.renderCars(e, true, this.state.currentPage+1)}>Next </span>
-					<span 
-						className="cursor-pointer orange-text paginate-margin" 
-						onClick={(e) => this.renderCars(e, true, this.totalPagesCount)}>Last</span>
-				</div>
-			</div>
-		</div>
-    );
+				<Footer/>
+			</React.Fragment>);
   }
 }
 
