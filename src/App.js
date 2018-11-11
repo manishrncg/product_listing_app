@@ -48,8 +48,12 @@ class App extends Component {
 		});
 	}
 
+	closeDropDownWrapper = (e) => {
+		return this.closeDropDown(e);
+	}
+
 	componentDidMount(){
-		document.addEventListener('click', (e) => this.closeDropDown(e));
+		document.addEventListener('click', this.closeDropDownWrapper);
 		document.addEventListener('scroll', this.closeDropDown);
 
 		const self = this;
@@ -68,7 +72,7 @@ class App extends Component {
 	}
 
 	componentWillUnmount() {
-	    document.removeEventListener('click', (e) => this.closeDropDown(e));
+	    document.removeEventListener('click', this.closeDropDownWrapper);
 		document.removeEventListener('scroll', this.closeDropDown);
   	}
 
