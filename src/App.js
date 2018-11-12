@@ -79,7 +79,15 @@ class App extends Component {
 	renderCars = (e, filter, pageNumber = 1) => {
 		const self = this;
 		this.params[e.target.getAttribute('data-type')] = e.target.getAttribute('data-value');
-		this.params.page = (pageNumber<=this.totalPagesCount && pageNumber>=1) ? pageNumber : 1;
+		if(pageNumber <= this.totalPagesCount && pageNumber >= 1){
+			this.params.page = pageNumber;
+		}
+		else if(pageNumber >= this.totalPagesCount ){
+			this.params.page = this.totalPagesCount;
+		}
+		else{
+			this.params.page = 1;
+		}
 		if(filter){
 			this.getCarsList({params: this.params})
 			.then(function (cars) {
